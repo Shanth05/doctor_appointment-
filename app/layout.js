@@ -1,16 +1,20 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
+import Header from "@/components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Doctor Appointment App",
+  title: "Medora",
   description: "Connect with doctors anytime, anywhere",
 };
 
 export default function RootLayout({ children }) {
   return (
+    <ClerkProvider appearance={{baseTheme:dark,}}>
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.className}`}>
@@ -22,6 +26,7 @@ export default function RootLayout({ children }) {
           >
 
           {/*header */}
+          <Header/>
 
           <main className="min-h-screen">
 
@@ -41,5 +46,6 @@ export default function RootLayout({ children }) {
           </ThemeProvider>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
