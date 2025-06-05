@@ -16,6 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider appearance={{baseTheme:dark,}}>
     <html lang="en" suppressHydrationWarning>
+        <head>
+          <link rel="icon" href="/logo.png" sizes="any" />
+        </head>
       <body
         className={`${inter.className}`}>
            <ThemeProvider
